@@ -10,12 +10,18 @@ const Blogs = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:8001/all-blogs", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => setBlogs(data))
-      .catch((error) => console.error("Error fetching message:", error));
+    async function getAllBlogs() {
+      const response = await fetch("http://localhost:8001/all-blogs", {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setBlogs(data);
+      } else {
+        console.error("Error fetching blogs");
+      }
+    }
+    getAllBlogs();
   }, []);
 
   return (
