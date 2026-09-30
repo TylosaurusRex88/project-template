@@ -32,7 +32,7 @@ export default function BlogCard({ _id, title, author, content, onDelete }: Blog
 
   return (
     <div>
-      <p>{title}</p>
+      <p className="text-amber-300 font-stretch-ultra-condensed font-extrabold"> {title}</p>
       <p>By: {author}</p>
       {isEditMode ? (
         <>
@@ -42,7 +42,7 @@ export default function BlogCard({ _id, title, author, content, onDelete }: Blog
       ) : (
         <>
           <p>{stateContent}</p>
-          <button onClick={editBlog}>Edit</button>
+          <button className = "bg-amber-300"  onClick={editBlog}>Edit</button>
         </>
       )}
 
